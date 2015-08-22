@@ -38,8 +38,6 @@ Atmel SAM3S datasheet: http://www.atmel.com/Images/Atmel-6500-32-bit-Cortex-M3-M
 
 Atmel SAM3S Getting Started: http://www.atmel.com/Images/Atmel-42152-Getting-Started-With-SAM3S-Microcontrollers_Application-Note_AT03499.pdf
 
-Atmel ASF: http://www.atmel.com/tools/avrsoftwareframework.aspx?tab=overview
-
 GCC compiler for ARM Cortex: https://launchpad.net/gcc-arm-embedded
 
 FreeRTOS: http://www.freertos.org/
