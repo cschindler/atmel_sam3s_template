@@ -1,4 +1,6 @@
-.bin
-.elf
-.map
-.o
+*.bin
+*.elf
+*.map
+*.o
+*.DS_Store
+toolchain/gcc-arm-none-eabi-*
