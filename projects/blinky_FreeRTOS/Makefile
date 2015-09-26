@@ -17,10 +17,10 @@
 TOPDIR = ../..
 PROJECT_DIR = $(TOPDIR)/projects/blinky_FreeRTOS
 
-GCC = $(TOPDIR)/gcc.mk
-SAM3S = $(TOPDIR)/sam3s/sam3s.mk
+GCC_DIR = $(TOPDIR)/gcc.mk
+SAM3S_DIR = $(TOPDIR)/sam3s/sam3s.mk
 BOARD_DIR = $(TOPDIR)/board/board.mk
-FREERTOS = $(TOPDIR)/thirdparty/FreeRTOS.mk
+FREERTOS_DIR = $(TOPDIR)/thirdparty/FreeRTOS.mk
 
 # Project name
 PROJECT_NAME = blinky_FreeRTOS
@@ -35,4 +35,4 @@ BOARD = BOARD_OLIMEX_H256
 INCLUDE += $(PROJECT_DIR)/include
 SOURCES += $(PROJECT_DIR)/source/main.c
 
-include $(SAM3S) $(BOARD_DIR) $(FREERTOS) $(GCC)
+include $(SAM3S_DIR) $(BOARD_DIR) $(FREERTOS_DIR) $(GCC_DIR)
