@@ -44,11 +44,12 @@ int main(void)
   // Initialize board
   board_init();
 
+  TRACE_INFO ("Blinky_FreeRTOS\n");
+  TRACE_INFO("Compiled on %s at %s\n", __DATE__, __TIME__);
+
   // Configure LED
   PMC_EnablePeripheral(ID_PIOA);
   PIO_Configure(&led, 1);
-
-  TRACE_INFO("Compiled on %s at %s\n", __DATE__, __TIME__);
 
   xTaskCreate(blinkyTask, "BLK", 0x100, NULL, tskIDLE_PRIORITY, NULL);
   vTaskStartScheduler();

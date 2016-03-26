@@ -44,11 +44,12 @@ int main(void)
   // Configure System Tick
   SysTick_Config(BOARD_FREQ / 1000); //1ms per interrupt
 
+  TRACE_INFO("Blinky\n");
+  TRACE_INFO("Compiled on %s at %s\n", __DATE__, __TIME__);
+
   // Configure LED
   PMC_EnablePeripheral(ID_PIOA);
   PIO_Configure(&led, 1);
-
-  TRACE_INFO("Compiled on %s at %s\n", __DATE__, __TIME__);
 
   while(1)
   {
