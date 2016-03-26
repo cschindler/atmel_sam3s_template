@@ -21,11 +21,10 @@
 
 #include "printf.h"
 
-#define TRACE_LEVEL_DEBUG     5
-#define TRACE_LEVEL_INFO      4
-#define TRACE_LEVEL_WARNING   3
-#define TRACE_LEVEL_ERROR     2
-#define TRACE_LEVEL_FATAL     1
+#define TRACE_LEVEL_DEBUG     4
+#define TRACE_LEVEL_INFO      3
+#define TRACE_LEVEL_WARNING   2
+#define TRACE_LEVEL_ERROR     1
 #define TRACE_LEVEL_NO_TRACE  0
 
 #ifndef TRACE_LEVEL
@@ -37,37 +36,45 @@
 #define TRACE_INFO(...)     ()
 #define TRACE_WARNING(...)  ()
 #define TRACE_ERROR(...)    ()
-#define TRACE_FATAL(...)    ()
+#define TRACE(...)          ()
 #else // NO_TRACE
 
+#ifdef NO_TRACE_COLOR
+#define ANSI_RED     ""
+#define ANSI_GREEN   ""
+#define ANSI_YELLOW  ""
+#define ANSI_RESET   ""
+#else // NO_TRACE_COLOR
+#define ANSI_RED     "\x1b[31;1m"
+#define ANSI_GREEN   "\x1b[32;1m"
+#define ANSI_YELLOW  "\x1b[33;1m"
+#define ANSI_RESET   "\x1b[0m"
+#endif
+
 #if (TRACE_LEVEL >= TRACE_LEVEL_DEBUG)
-#define TRACE_DEBUG(...)  _printf("[DEBUG] " __VA_ARGS__)
+#define TRACE_DEBUG(...)  _printf("[DEBUG] (%s:%d) ", __FILE__, __LINE__); _printf(__VA_ARGS__);
 #else
 #define TRACE_DEBUG(...)  ()
 #endif
 
 #if (TRACE_LEVEL >= TRACE_LEVEL_INFO)
-#define TRACE_INFO(...)  _printf("[INFO] " __VA_ARGS__)
+#define TRACE_INFO(...)  _printf(ANSI_GREEN "[INFO] " ANSI_RESET __VA_ARGS__);
 #else
 #define TRACE_INFO(...)  ()
 #endif
 
 #if (TRACE_LEVEL >= TRACE_LEVEL_WARNING)
-#define TRACE_WARNING(...)  _printf("[WARNING] " __VA_ARGS__)
+#define TRACE_WARNING(...)  _printf(ANSI_YELLOW "[WARNING] " ANSI_RESET __VA_ARGS__);
 #else
 #define TRACE_WARNING(...)  ()
 #endif
 
 #if (TRACE_LEVEL >= TRACE_LEVEL_ERROR)
-#define TRACE_ERROR(...)  _printf("[ERROR] " __VA_ARGS__)
+#define TRACE(...)        _printf(__VA_ARGS__);
+#define TRACE_ERROR(...)  _printf(ANSI_RED "[ERROR] " ANSI_RESET __VA_ARGS__);
 #else
+#define TRACE(...)        ()
 #define TRACE_ERROR(...)  ()
-#endif
-
-#if (TRACE_LEVEL >= TRACE_LEVEL_FATAL)
-#define TRACE_FATAL(...)  _printf("[FATAL] " __VA_ARGS__)
-#else
-#define TRACE_FATAL(...)  ()
 #endif
 
 #endif // NO_TRACE
