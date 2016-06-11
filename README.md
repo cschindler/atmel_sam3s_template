@@ -23,14 +23,14 @@ Now, you are ready to compile the simple blinky example.
 	cd projects/blinky/
 	make all
 
-Or the blinly example using FreeRTOS.
+Or the blinky example using FreeRTOS.
 
 	cd projects/blinky_FreeRTOS
 	make all
 
-## Upload binary (coming soon)
+## Upload binary (using BOSSA)
 
-* Use BOSSA software.
+	make upload
 
 ## Documentation
 
@@ -42,10 +42,12 @@ GCC compiler for ARM Cortex: https://launchpad.net/gcc-arm-embedded
 
 FreeRTOS: http://www.freertos.org/
 
+BOSSA:
+http://www.shumatech.com/web/products/bossa
+https://github.com/shumatech/BOSSA
+
 Olimex SAM3-H256 board:
 https://www.olimex.com/Products/ARM/Atmel/SAM3-H256/
-
-BOSSA: https://github.com/shumatech/BOSSA
 
 ## Author
 

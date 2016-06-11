@@ -64,6 +64,9 @@ $(PROJECT_NAME).elf: $(OBJS)
 	@echo "[GCC]" $@
 	@$(CC) $(CCFLAGS) $(INC) $< -o $@
 
+upload:
+	bossac -e -w -v -b $(PROJECT_NAME).bin
+
 clean:
 	@echo "[CLEAN] *.o *.elf *.bin *.map"
 	@rm -rf *.o *.elf *.bin *.map obj/ bin/
