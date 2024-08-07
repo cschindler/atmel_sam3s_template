@@ -51,4 +51,4 @@ https://www.olimex.com/Products/ARM/Atmel/SAM3-H256/
 
 ## Author
 
-* Christopher Schindler schindler.cs@gmail.com
+* Christopher Schindler
